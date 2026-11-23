@@ -241,7 +241,7 @@ After release, the support team helps customers resolve issues.
 After a certain period, the product reaches the end of its life, and further support may no longer be provided.
 
 The SDLC flow is:
-````
+```
 
 Idea\
 |\
