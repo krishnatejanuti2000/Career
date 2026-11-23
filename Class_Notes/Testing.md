@@ -241,21 +241,22 @@ After release, the support team helps customers resolve issues.
 After a certain period, the product reaches the end of its life, and further support may no longer be provided.
 
 The SDLC flow is:
+````
 
-```
-Idea
-  |
-Design
-  |
-Coding
-  |
-Testing
-  |
-Release
-  |
-Support
-  |
+Idea\
+|\
+Design\
+|\
+Coding\
+|\
+Testing\
+|\
+Release\
+|\
+Support\
+|\
 End of Life
+
 ```
 
 ### **Q7. What is STLC? Explain all stages of the Software Testing Life Cycle.**
@@ -319,19 +320,20 @@ We report:
 - Testing status.
 
 The STLC flow is:
-
 ```
-Requirement Analysis
-        |
-   Test Planning
-        |
-    Test Design
-        |
-Test Environment Setup
-        |
-  Test Execution
-        |
-  Test Reporting
+
+Requirement Analysis\
+|\
+Test Planning\
+|\
+Test Design\
+|\
+Test Environment Setup\
+|\
+Test Execution\
+|\
+Test Reporting
+
 ```
 
 ### **Q8. What is the difference between SDLC and STLC?**
@@ -565,32 +567,71 @@ We execute the same test cases on different hardware configurations and verify w
 
 In enterprise storage validation, compatibility testing can also involve different server models, storage adapters and hardware configurations.
 
-### **Q16. What is Acceptance Testing? Explain Alpha Testing and Beta Testing.**
+### **Q16. What is Acceptance Testing? Explain Alpha Testing and Beta Testing with examples.**
 
 **Answer:**
 
-Acceptance testing is a level of testing performed to verify whether the product meets customer requirements and is acceptable for use.
+Acceptance Testing is a level of testing performed to verify whether a product meets customer requirements and acceptance criteria and is suitable for acceptance.
 
-Two types mentioned in my notes are:
+It focuses on whether the product satisfies user and business needs.
+
+Two types of acceptance testing are:
 
 **1. Alpha Testing:**
 
-In alpha testing, customers or their representatives come to the development/testing environment and execute their test cases.
+Alpha Testing is a type of acceptance testing performed in the developer's testing environment by people outside the development organization.
 
-They verify the product against their requirements.
+These may include:
+
+- Potential users.
+- Customer representatives.
+- Independent testing teams.
+
+The purpose is to identify defects and collect feedback before the product is released for wider external use.
+
+**Example:**
+
+Suppose our company develops an Enterprise Storage Array.
+
+1. The development team completes the product development.
+2. Our internal QA team completes the initial testing.
+3. Customer representatives visit our development/testing facility.
+4. They execute their test cases on our storage array.
+5. They verify the product against their requirements.
+6. They provide feedback and report any issues.
+
+This is Alpha Testing.
 
 **2. Beta Testing:**
 
-In beta testing, the product is provided to customers in their own environment.
+Beta Testing is a type of acceptance testing performed at an external environment by potential or existing users/customers or other roles outside the development organization.
 
-Customers execute test cases and run real-time workloads on the product.
+The product is provided to selected customers or users so they can evaluate it under their actual operating conditions and provide feedback.
 
-| Alpha Testing                                       | Beta Testing                                   |
-| --------------------------------------------------- | ---------------------------------------------- |
-| Performed in the development or testing environment | Performed in the customer's environment        |
-| Customers execute test cases in our environment     | Customers use the product in their environment |
-| Controlled testing environment                      | Real customer environment                      |
-| Helps identify issues before customer-wide release  | Helps validate real-world usage                |
+**Example:**
+
+Suppose our company develops an Enterprise Storage Array.
+
+1. Alpha Testing is completed.
+2. A beta version of the storage array is provided to selected customers.
+3. Customers install the storage array in their own environment.
+4. They connect their servers and configure storage.
+5. They execute their actual workloads.
+6. They monitor performance, reliability and functionality.
+7. They report issues and provide feedback.
+
+This is Beta Testing.
+
+**Difference between Alpha and Beta Testing:**
+
+| Feature          | Alpha Testing                                                       | Beta Testing                                           |
+| ---------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
+| Testing location | Developer's testing environment                                     | External/customer environment                          |
+| Who performs it? | Potential users, customer representatives or independent test teams | Potential or existing users/customers                  |
+| Environment      | Controlled developer environment                                    | External operational environment                       |
+| Main purpose     | Identify defects and gather early feedback                          | Validate user needs and real-world behaviour           |
+| Product stage    | Generally before beta testing                                       | Generally after alpha testing and before wider release |
+| Feedback         | Provided to development/testing teams                               | Provided by external users/customers                   |
 
 ### **Q17. What is Positive Testing and Negative Testing? Why do we perform both?**
 
@@ -647,21 +688,29 @@ In my notes, this concept is closely related to System Testing, where testers ex
 
 # **Section 3 – Test Planning, Test Design and Test Documentation**
 
-### **Q19. What is a Test Scenario and what is a Test Case? Explain the difference.**
+### **Q19. What is a Test Scenario and what is a Test Case? Explain the difference with an example.**
 
 **Answer:**
 
 **Test Scenario:**
 
-A test scenario is a high-level description of a functionality that needs to be tested.
+A Test Scenario is a high-level description of a functionality that needs to be tested.
 
 It defines what functionality we need to verify.
 
 **Test Case:**
 
-A test case is a step-by-step approach used to verify whether a particular functionality is working according to the expected behaviour or not.
+A Test Case is a detailed set of instructions used to verify whether a particular functionality works according to the expected behavior.
 
-It contains test steps, expected results and actual results.
+Every test case should contain the following fields:
+
+1. Test Case ID.
+2. Summary.
+3. Preconditions.
+4. Steps.
+5. Expected Behavior.
+6. Actual Result/Behavior.
+7. Status.
 
 **Example: Google Chrome Refresh Functionality**
 
@@ -669,75 +718,177 @@ Test Scenario:
 
 Verify Google Chrome refresh functionality.
 
-Test Cases:
+Test Case:
 
-1. Open Google Chrome.
-2. Navigate to a website.
-3. Click the Refresh button.
-4. Verify whether the webpage refreshes successfully.
+| Field                  | Details                                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_001                                                                                                 |
+| Summary                | Verify that Chrome refreshes the currently opened webpage                                                     |
+| Preconditions          | Chrome is installed and can be launched. A valid website is accessible, and network connectivity is available. |
+| Steps                  | 1. Open Chrome. 2. Navigate to a valid website. 3. Wait for the webpage to load. 4. Click the Refresh button. |
+| Expected Behavior      | The currently opened webpage should refresh successfully without browser errors.                              |
+| Actual Result/Behavior | Not executed yet.                                                                                             |
+| Status                 | Not Executed                                                                                                  |
 
 **Difference:**
 
-| Test Scenario                | Test Case                          |
-| ---------------------------- | ---------------------------------- |
-| High-level description       | Detailed step-by-step procedure    |
-| Defines what to test         | Defines how to test                |
-| Contains multiple test cases | Covers a particular test condition |
-| Focuses on functionality     | Focuses on verification            |
+| Test Scenario                   | Test Case                             |
+| ------------------------------- | ------------------------------------- |
+| High-level description          | Detailed verification procedure       |
+| Defines what to test            | Defines how to test                   |
+| Can contain multiple test cases | Covers a specific test condition      |
+| Focuses on functionality        | Focuses on verification and execution |
 
-### **Q20. What are the different fields of a Test Case?**
+### **Q20. What are the different mandatory fields of a Test Case? Explain each field with an example.**
 
 **Answer:**
 
-According to my notes, a test case contains the following fields:
+A Test Case is a documented procedure used to verify whether a particular product functionality is working according to the expected behavior.
 
-1. **Serial Number:** Unique sequence number of the test case.
-2. **Test Case ID:** Unique identification of the test case.
-3. **Summary:** Short description of the functionality being tested.
-4. **Steps:** Step-by-step instructions to execute the test case.
-5. **Expected Results:** Expected behaviour after executing the test case.
-6. **Actual Results:** Actual behaviour observed after executing the test case.
+Every test case must contain the following seven fields in our test-case format.
 
-**Example:**
+**1. Test Case ID:**
 
-| Field           | Example                                   |
-| --------------- | ----------------------------------------- |
-| S.No            | 1                                         |
-| Test Case ID    | TC001                                     |
-| Summary         | Verify Google Chrome launch functionality |
-| Steps           | Turn on PC and launch Google Chrome       |
-| Expected Result | Google Chrome should open successfully    |
-| Actual Result   | Google Chrome opened successfully         |
+A unique identifier assigned to every test case.
+
+Example:
+
+`TC_RAID_001`
+
+**2. Summary:**
+
+A brief description of what functionality we are testing.
+
+Example:
+
+Verify RAID 5 creation using the minimum required number of drives.
+
+**3. Preconditions:**
+
+Conditions that must be satisfied before executing the test case.
+
+Examples:
+
+- Test environment should be ready.
+- Required hardware should be available.
+- Required firmware should be installed.
+- User should have the necessary permissions.
+- Required configuration should be completed.
+
+**4. Steps:**
+
+Step-by-step instructions that the tester follows while executing the test case.
+
+Example:
+
+1. Log in to the storage management interface.
+2. Navigate to RAID configuration.
+3. Select three compatible drives.
+4. Select RAID 5.
+5. Submit the RAID creation request.
+
+**5. Expected Behavior:**
+
+The behavior that should occur according to the product requirements.
+
+Example:
+
+RAID 5 should be created successfully, and the RAID Group should enter the expected healthy state.
+
+**6. Actual Result/Behavior:**
+
+The behavior actually observed when we execute the test case.
+
+Example:
+
+RAID 5 was created successfully, and the RAID Group entered the Online state.
+
+If the test case has not been executed yet, record:
+
+`Not executed yet`
+
+**7. Status:**
+
+The final execution status based on the comparison between expected and actual behavior.
+
+Common statuses include:
+
+| Status       | Meaning                                                                     |
+| ------------ | --------------------------------------------------------------------------- |
+| Not Executed | Test case has not been executed                                             |
+| In Progress  | Test case execution is ongoing                                              |
+| PASS         | Actual behavior matches expected behavior                                   |
+| FAIL         | Actual behavior differs from expected behavior                              |
+| BLOCKED      | Test case cannot be executed because of an unmet precondition or dependency |
+| N/A          | Test case is not applicable to the current configuration                    |
+
+**Complete Test Case Example:**
+
+| Field                  | Details                                                                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_RAID_001                                                                                                                                   |
+| Summary                | Verify RAID 5 creation                                                                                                                        |
+| Preconditions          | Three compatible drives are available. RAID Controller is detected and healthy. Required permissions are available.                           |
+| Steps                  | 1. Open RAID management utility. 2. Select three available drives. 3. Select RAID 5. 4. Submit the configuration. 5. Check RAID Group status. |
+| Expected Behavior      | RAID 5 should be created successfully and enter the expected healthy state.                                                                   |
+| Actual Result/Behavior | Not executed yet.                                                                                                                             |
+| Status                 | Not Executed                                                                                                                                  |
+
+**Important Interview Point:**
+
+Expected Behavior is defined before test execution.
+
+Actual Result/Behavior is recorded after test execution.
+
+We should never copy the expected result into the actual result without executing the test case.
+
+The test case can be designed before execution, but the actual result and final status must be updated during or after the execution.
 
 ### **Q21. How do you write test cases using a Functional Verification Document or Product Verification Document?**
 
 **Answer:**
 
-A Functional Verification Document or Product Verification Document contains detailed information about the functionality of a product or software application.
+A Functional Verification Document (FVD) or Product Verification Document (PVD) contains detailed information about the functionality, requirements and expected behavior of a product.
 
-As a tester, I refer to this document to understand the product functionality and prepare test cases.
+As a tester, I refer to this document to understand the functionality and prepare appropriate test cases.
 
 **Process:**
 
-1. Read and understand the Functional Verification Document.
-2. Identify all the functionalities available in the product.
-3. Prepare high-level test scenarios for each functionality.
-4. Derive detailed test cases from the test scenarios.
-5. Write step-by-step execution steps.
-6. Define expected results for every test case.
-7. Review the test cases to ensure that all important functionalities are covered.
+1. Read and understand the FVD/PVD.
+2. Identify all product functionalities.
+3. Identify the requirements and expected behaviors.
+4. Prepare high-level test scenarios.
+5. Derive positive and negative test cases.
+6. Identify the preconditions for each test case.
+7. Write detailed execution steps.
+8. Define expected behavior for every test case.
+9. Assign a unique Test Case ID.
+10. Keep actual result and status fields ready for execution.
+11. Review test cases for requirement coverage.
+12. Map requirements to test cases using the Traceability Matrix.
 
-**Example: Google Chrome Refresh Functionality**
+**Example: RAID 5 Functionality**
 
-Test Scenario: Verify Google Chrome refresh functionality.
+Suppose the FVD specifies that RAID 5 supports three or more compatible drives.
 
-Test Cases:
+Test Scenario:
 
-- Verify that the Refresh button is visible.
-- Verify that clicking the Refresh button refreshes the webpage.
-- Verify that the webpage refreshes successfully.
+Verify RAID 5 creation functionality.
 
-The main objective is to ensure that every requirement is covered by appropriate test cases.
+Derived Test Cases:
+
+- Verify RAID 5 creation using three compatible drives.
+- Verify RAID 5 creation using four compatible drives.
+- Verify RAID 5 creation with fewer than three drives.
+- Verify that RAID 5 creation is rejected when no drives are selected.
+- Verify RAID 5 status after successful creation.
+- Verify RAID 5 behavior when one member drive fails.
+
+Each of these test cases must be documented using all seven mandatory fields defined in Q20.
+
+**Objective:**
+
+Ensure every functional requirement is covered by properly documented and executable test cases.
 
 ### **Q22. What is the difference between Test Plan and Test Strategy?**
 
@@ -933,55 +1084,313 @@ Based on that experience, I can design negative test cases such as attempting RA
 
 This helps identify issues that may not be covered through normal test case design techniques.
 
-### **Q27. Write positive and negative test cases for Google Chrome.**
+### **Q27. Write five positive and five negative test cases for Google Chrome.**
 
 **Answer:**
 
-**Positive Test Cases:**
+I would prepare separate positive and negative test cases to verify normal functionality and incorrect-input handling.
 
-| TC ID | Test Case                    | Expected Result                             |
-| ----- | ---------------------------- | ------------------------------------------- |
-| TC01  | Launch Google Chrome         | Chrome should open successfully             |
-| TC02  | Enter a valid website URL    | Website should open successfully            |
-| TC03  | Click the Refresh button     | Current webpage should refresh              |
-| TC04  | Open a new tab               | New tab should open successfully            |
-| TC05  | Enter a valid search keyword | Relevant search results should be displayed |
+For every test case, I record all seven mandatory fields.
 
-**Negative Test Cases:**
+**A. Positive Test Cases**
 
-| TC ID | Test Case                                               | Expected Result                                   |
-| ----- | ------------------------------------------------------- | ------------------------------------------------- |
-| TC06  | Enter an invalid URL                                    | Browser should display an appropriate error       |
-| TC07  | Enter an unsupported URL format                         | Browser should handle it without crashing         |
-| TC08  | Enter an empty URL and press Enter                      | Browser should not crash                          |
-| TC09  | Disconnect the network and open a website               | Browser should display a connection error         |
-| TC10  | Try refreshing when network connectivity is unavailable | Browser should handle the failed request properly |
+**TC01 – Verify Google Chrome Launch**
+
+| Field                  | Details                                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_001                                                                                              |
+| Summary                | Verify Chrome launches successfully                                                                        |
+| Preconditions          | Google Chrome is installed. Supported OS is running.                                                       |
+| Steps                  | 1. Navigate to the Chrome application. 2. Double-click the Chrome icon. 3. Wait for the browser to launch. |
+| Expected Behavior      | Chrome should launch successfully and display the browser window.                                          |
+| Actual Result/Behavior | Not executed yet.                                                                                          |
+| Status                 | Not Executed                                                                                               |
+
+**TC02 – Verify Valid Website URL**
+
+| Field                  | Details                                                                                |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_002                                                                          |
+| Summary                | Verify opening a valid website URL                                                     |
+| Preconditions          | Chrome is installed and can be launched. Internet connectivity is available, and the website is reachable. |
+| Steps                  | 1. Open Chrome. 2. Enter a valid URL such as `https://www.google.com`. 3. Press Enter. |
+| Expected Behavior      | The requested website should load successfully.                                        |
+| Actual Result/Behavior | Not executed yet.                                                                      |
+| Status                 | Not Executed                                                                           |
+
+**TC03 – Verify Refresh Functionality**
+
+| Field                  | Details                                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_003                                                                                           |
+| Summary                | Verify webpage refresh functionality                                                                    |
+| Preconditions          | Chrome is installed and can be launched. Network connectivity is available, and a valid website is reachable. |
+| Steps                  | 1. Open a website. 2. Wait for it to load. 3. Click the Refresh button. 4. Wait for the page to reload. |
+| Expected Behavior      | The webpage should refresh successfully without unexpected browser errors.                              |
+| Actual Result/Behavior | Not executed yet.                                                                                       |
+| Status                 | Not Executed                                                                                            |
+
+**TC04 – Verify New Tab Functionality**
+
+| Field                  | Details                                                              |
+| ---------------------- | -------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_004                                                        |
+| Summary                | Verify that Chrome opens a new tab                                   |
+| Preconditions          | Chrome is installed, and a user profile is available.                 |
+| Steps                  | 1. Open Chrome. 2. Press `Ctrl + T`. 3. Observe the browser window.  |
+| Expected Behavior      | A new tab should open successfully without closing the existing tab. |
+| Actual Result/Behavior | Not executed yet.                                                    |
+| Status                 | Not Executed                                                         |
+
+**TC05 – Verify Search Functionality**
+
+| Field                  | Details                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_005                                                                                 |
+| Summary                | Verify searching using a valid keyword                                                        |
+| Preconditions          | Chrome is installed and can be launched. Internet connectivity and a working default search engine are available. |
+| Steps                  | 1. Open Chrome. 2. Enter a valid search keyword such as `Python programming`. 3. Press Enter. |
+| Expected Behavior      | Relevant search results should be displayed by the configured search engine.                  |
+| Actual Result/Behavior | Not executed yet.                                                                             |
+| Status                 | Not Executed                                                                                  |
+
+**B. Negative Test Cases**
+
+**TC06 – Verify Invalid URL Handling**
+
+| Field                  | Details                                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_006                                                                                       |
+| Summary                | Verify Chrome handles a malformed URL                                                               |
+| Preconditions          | Chrome is installed and can be launched.                                                            |
+| Steps                  | 1. Open Chrome. 2. Enter a malformed URL such as `http://[invalid`. 3. Press Enter.                 |
+| Expected Behavior      | Chrome should reject the invalid URL or display an appropriate error. The browser should not crash. |
+| Actual Result/Behavior | Not executed yet.                                                                                   |
+| Status                 | Not Executed                                                                                        |
+
+**TC07 – Verify Unsupported URL Scheme Handling**
+
+| Field                  | Details                                                                                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_007                                                                                                                                       |
+| Summary                | Verify Chrome handles an unsupported URL scheme                                                                                                     |
+| Preconditions          | Chrome is installed and can be launched. No application handler is configured for the test scheme.                                                  |
+| Steps                  | 1. Open Chrome. 2. Enter an unsupported URL scheme such as `unknownscheme://test`. 3. Press Enter. 4. Observe the browser response.                 |
+| Expected Behavior      | Chrome should handle the unsupported scheme appropriately, for example by showing an error or handler prompt. The browser should remain responsive. |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                   |
+| Status                 | Not Executed                                                                                                                                        |
+
+**TC08 – Verify Empty URL Handling**
+
+| Field                  | Details                                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_008                                                                                        |
+| Summary                | Verify Chrome handles an empty address-bar input                                                     |
+| Preconditions          | Chrome is running and a browser tab is open.                                                         |
+| Steps                  | 1. Focus the existing Chrome window. 2. Select the address bar. 3. Clear the existing text. 4. Press Enter. |
+| Expected Behavior      | Chrome should handle the empty input without crashing or displaying an unexpected application error. |
+| Actual Result/Behavior | Not executed yet.                                                                                    |
+| Status                 | Not Executed                                                                                         |
+
+**TC09 – Verify Website Access Without Network Connectivity**
+
+| Field                  | Details                                                                                                                    |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_009                                                                                                              |
+| Summary                | Verify website access when network connectivity is unavailable                                                             |
+| Preconditions          | Chrome is installed and can be launched. A valid website URL is known. Network connectivity can be disconnected safely.    |
+| Steps                  | 1. Disconnect the system from the network. 2. Open Chrome. 3. Enter the valid website URL. 4. Press Enter.                 |
+| Expected Behavior      | Chrome should display an appropriate connection error or unavailable-page response. The browser should remain operational. |
+| Actual Result/Behavior | Not executed yet.                                                                                                          |
+| Status                 | Not Executed                                                                                                               |
+
+**TC10 – Verify Refresh When Network Is Disconnected**
+
+| Field                  | Details                                                                                                                                                   |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | TC_CHROME_010                                                                                                                                             |
+| Summary                | Verify refresh behavior when network connectivity is unavailable                                                                                          |
+| Preconditions          | Chrome is running, and a webpage has loaded successfully. Network connectivity can be disconnected safely.                                                |
+| Steps                  | 1. Disconnect network connectivity. 2. Click the Refresh button on the already loaded webpage. 3. Observe the browser response.                            |
+| Expected Behavior      | Chrome should handle the failed network request without crashing. The fresh webpage content should not be incorrectly reported as successfully retrieved. |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                         |
+| Status                 | Not Executed                                                                                                                                              |
+
+**Test Case Execution Summary:**
+
+| Metric              | Count |
+| ------------------- | ----- |
+| Total Test Cases    | 10    |
+| Positive Test Cases | 5     |
+| Negative Test Cases | 5     |
+| Executed            | 0     |
+| Passed              | 0     |
+| Failed              | 0     |
+| Not Executed        | 10    |
 
 ### **Q28. Write five positive and five negative test cases for RAID.**
 
 **Answer:**
 
-**Positive Test Cases:**
+RAID testing is performed to verify whether the RAID Controller or Storage Array is working according to the defined RAID requirements.
 
-| TC ID     | Test Case                                                           | Expected Result                                          |
-| --------- | ------------------------------------------------------------------- | -------------------------------------------------------- |
-| RAID_TC01 | Create RAID 0 using the required minimum drives                     | RAID 0 should be created successfully                    |
-| RAID_TC02 | Create RAID 1 using the required minimum drives                     | RAID 1 should be created successfully                    |
-| RAID_TC03 | Create RAID 5 using at least the required minimum drives            | RAID 5 should be created successfully                    |
-| RAID_TC04 | Create a virtual drive or logical volume on a RAID group            | Logical drive should be created successfully             |
-| RAID_TC05 | Verify RAID status after creation and perform read/write operations | RAID should be operational and data should be accessible |
+We need to verify RAID creation, drive compatibility, RAID status, data accessibility and fault handling.
 
-**Negative Test Cases:**
+For these examples, we assume a supported hardware RAID controller and compatible drives.
 
-| TC ID     | Test Case                                                           | Expected Result                                                                |
-| --------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| RAID_TC06 | Attempt RAID 5 creation with fewer than the required minimum drives | RAID creation should be rejected                                               |
-| RAID_TC07 | Attempt RAID creation without selecting drives                      | System should display an appropriate error                                     |
-| RAID_TC08 | Remove one drive from a redundant RAID configuration                | RAID should enter the expected degraded state                                  |
-| RAID_TC09 | Attempt an unsupported RAID configuration                           | System should reject the configuration                                         |
-| RAID_TC10 | Disconnect a required drive during an I/O operation                 | System should report the drive failure and handle the RAID state appropriately |
+The minimum drive requirements used are:
 
-**Important:** These are representative functional and negative test cases. In an actual enterprise storage environment, we must define the expected results based on the supported RAID controller, RAID level and product specifications.
+- RAID 0 – 2 drives.
+- RAID 1 – 2 drives.
+- RAID 5 – 3 drives.
+
+The tests should be performed using dedicated test drives without production data.
+
+**A. Positive Test Cases**
+
+**TC01 – Verify RAID 0 Creation**
+
+| Field                  | Details                                                                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_001                                                                                                                                                          |
+| Summary                | Verify RAID 0 creation using two compatible drives                                                                                                                   |
+| Preconditions          | RAID Controller is detected and healthy. Two compatible Unconfigured Good drives are available. No existing data needs preservation on these drives.                 |
+| Steps                  | 1. Log in to the RAID Controller management utility. 2. Identify two available drives. 3. Select RAID 0. 4. Submit RAID creation. 5. Check the Virtual Drive status. |
+| Expected Behavior      | RAID 0 should be created successfully and enter the expected healthy state. The configured capacity should be available.                                             |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                    |
+| Status                 | Not Executed                                                                                                                                                         |
+
+**TC02 – Verify RAID 1 Creation**
+
+| Field                  | Details                                                                                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_002                                                                                                                                                |
+| Summary                | Verify RAID 1 creation using two compatible drives                                                                                                         |
+| Preconditions          | RAID Controller is detected and healthy. Two compatible drives are available. Both drives meet the supported RAID 1 requirements.                          |
+| Steps                  | 1. Open RAID management utility. 2. Select two available drives. 3. Select RAID 1. 4. Submit the configuration. 5. Verify RAID status and usable capacity. |
+| Expected Behavior      | RAID 1 should be created successfully. Both drives should participate in mirroring, and the Virtual Drive should enter the expected healthy state.         |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                          |
+| Status                 | Not Executed                                                                                                                                               |
+
+**TC03 – Verify RAID 5 Creation**
+
+| Field                  | Details                                                                                                                                                               |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_003                                                                                                                                                           |
+| Summary                | Verify RAID 5 creation using three compatible drives                                                                                                                  |
+| Preconditions          | RAID Controller is detected and healthy. Three compatible drives are available. All drives satisfy the controller's RAID 5 requirements.                              |
+| Steps                  | 1. Open RAID management utility. 2. Select three compatible drives. 3. Select RAID 5. 4. Submit the configuration. 5. Verify the RAID Group and Virtual Drive status. |
+| Expected Behavior      | RAID 5 should be created successfully with distributed parity and the expected usable capacity. The RAID Group should enter the healthy state.                        |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                     |
+| Status                 | Not Executed                                                                                                                                                          |
+
+**TC04 – Verify Virtual Drive Creation on a RAID Group**
+
+| Field                  | Details                                                                                                                                                                                                                                   |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_004                                                                                                                                                                                                                               |
+| Summary                | Verify creation of a Virtual Drive or logical volume using an existing RAID Group                                                                                                                                                         |
+| Preconditions          | A healthy RAID Group exists. Sufficient free capacity is available. RAID Controller management access is available.                                                                                                                       |
+| Steps                  | 1. Open RAID management utility. 2. Select the healthy RAID Group or available drive group. 3. Select Create Virtual Drive. 4. Enter the required capacity and configuration. 5. Submit the request. 6. Verify the Virtual Drive details. |
+| Expected Behavior      | A Virtual Drive should be created successfully with the requested configuration and capacity.                                                                                                                                             |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                                                                                         |
+| Status                 | Not Executed                                                                                                                                                                                                                              |
+
+**TC05 – Verify RAID Health and Read/Write Operations**
+
+| Field                  | Details                                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_005                                                                                                                                                                                                                           |
+| Summary                | Verify RAID health and data accessibility after successful RAID creation                                                                                                                                                              |
+| Preconditions          | A RAID Group and Virtual Drive have been created successfully. The Virtual Drive is accessible to the test host. Initialization has completed, or the controller reports an operational state that supports host I/O. A safe test area is available. |
+| Steps                  | 1. Check RAID Group status. 2. Check Virtual Drive status and initialization progress. 3. Wait until initialization completes or the controller reports an operational state that supports host I/O, as defined by the product requirements. 4. Verify the logical device is detected by the OS. 5. Perform controlled write operations in the designated safe test area. 6. Read back the written data. 7. Compare the read data with the written data. |
+| Expected Behavior      | RAID should remain in the expected healthy state. I/O should begin only after the product-defined initialization/operational condition is reached. Read/write operations should complete successfully, and the retrieved data should match the written data. |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                                                                                     |
+| Status                 | Not Executed                                                                                                                                                                                                                          |
+
+**B. Negative Test Cases**
+
+**TC06 – Verify RAID 5 Creation with Insufficient Drives**
+
+| Field                  | Details                                                                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_006                                                                                                                                                          |
+| Summary                | Verify RAID 5 creation is rejected when fewer than the minimum required drives are selected                                                                          |
+| Preconditions          | RAID Controller is detected and healthy. Only two compatible available drives are present.                                                                           |
+| Steps                  | 1. Open RAID management utility. 2. Select two available drives. 3. Attempt to create RAID 5. 4. Observe the controller response.                                    |
+| Expected Behavior      | RAID 5 creation should be rejected because the minimum requirement of three drives is not satisfied. An appropriate error or validation message should be displayed. |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                    |
+| Status                 | Not Executed                                                                                                                                                         |
+
+**TC07 – Verify RAID Creation Without Selecting Drives**
+
+| Field                  | Details                                                                                                                                                                |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_007                                                                                                                                                            |
+| Summary                | Verify RAID creation is rejected when no physical drives are selected                                                                                                  |
+| Preconditions          | RAID Controller is detected and healthy. RAID management utility is accessible.                                                                                        |
+| Steps                  | 1. Open RAID management utility. 2. Navigate to RAID creation. 3. Select a supported RAID level. 4. Do not select any physical drives. 5. Submit the creation request. |
+| Expected Behavior      | The controller should reject the request and display an appropriate validation message. No RAID Group or Virtual Drive should be created.                              |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                      |
+| Status                 | Not Executed                                                                                                                                                           |
+
+**TC08 – Verify RAID Degraded State After a Drive Failure**
+
+| Field                  | Details                                                                                                                                                                                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_008                                                                                                                                                                                                                                                     |
+| Summary                | Verify RAID enters Degraded state when one drive fails in a redundant RAID configuration                                                                                                                                                                        |
+| Preconditions          | A healthy RAID 5 configuration or a healthy RAID 1 configuration consisting of exactly two mirrored drives exists. The array contains test data. The controller and drive bay support the planned failure simulation or hot-swap procedure. |
+| Steps                  | 1. Verify that the RAID Group is healthy. 2. Identify a member drive. 3. Simulate its failure using a supported method or remove it according to the hardware service procedure. 4. Check the RAID Group status. 5. Verify whether the data remains accessible. |
+| Expected Behavior      | The controller should identify the failed drive. The RAID Group should enter Degraded state while remaining accessible within the RAID level's fault-tolerance limit. An appropriate alert or event should be generated.                                        |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                                                                                                               |
+| Status                 | Not Executed                                                                                                                                                                                                                                                    |
+
+**TC09 – Verify Unsupported RAID Configuration Is Rejected**
+
+| Field                  | Details                                                                                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_009                                                                                                                                                               |
+| Summary                | Verify rejection of RAID 6 creation with insufficient drives                                                                                                              |
+| Preconditions          | RAID Controller supports RAID 6. Only three compatible drives are available.                                                                                              |
+| Steps                  | 1. Open RAID management utility. 2. Select three drives. 3. Select RAID 6. 4. Submit the RAID creation request. 5. Observe the controller response.                       |
+| Expected Behavior      | RAID 6 creation should be rejected because four drives are the minimum required. An appropriate error should be reported, and no incomplete RAID Group should be created. |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                         |
+| Status                 | Not Executed                                                                                                                                                              |
+
+**TC10 – Verify RAID Behaviour When a Drive Fails During I/O**
+
+| Field                  | Details                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Test Case ID           | RAID_TC_010                                                                                                                                                                                                                                                                                                                             |
+| Summary                | Verify RAID handles a single drive failure during an active I/O workload                                                                                                                                                                                                                                                                |
+| Preconditions          | A healthy RAID 5 test configuration exists. The Virtual Drive is accessible to the test host. Test data is available. The controller supports the planned drive-failure simulation or hot-swap procedure.                                                                                                                               |
+| Steps                  | 1. Verify RAID 5 is in a healthy state. 2. Start a controlled read/write workload on the Virtual Drive. 3. Simulate the failure or supported hot removal of one member drive. 4. Monitor RAID Controller events and logs. 5. Check the RAID Group state. 6. Verify data accessibility. 7. Stop the workload and inspect data integrity. |
+| Expected Behavior      | The controller should report the failed drive and transition RAID 5 into Degraded state. Since a single drive failure is within RAID 5 fault tolerance, the array should remain accessible. Any I/O errors during transition should be recorded and investigated. No silent data corruption should occur.                               |
+| Actual Result/Behavior | Not executed yet.                                                                                                                                                                                                                                                                                                                       |
+| Status                 | Not Executed                                                                                                                                                                                                                                                                                                                            |
+
+**Test Case Execution Summary:**
+
+| Metric              | Count |
+| ------------------- | ----- |
+| Total Test Cases    | 10    |
+| Positive Test Cases | 5     |
+| Negative Test Cases | 5     |
+| Executed            | 0     |
+| Passed              | 0     |
+| Failed              | 0     |
+| Not Executed        | 10    |
+
+**Important RAID Testing Precautions:**
+
+- Use dedicated test drives.
+- Do not perform destructive RAID testing on drives containing production data.
+- Confirm drive slot identification before removing a drive.
+- Check RAID fault tolerance before simulating a failure.
+- Record controller logs and event information.
+- Verify data integrity after fault-injection testing.
+- Follow the hardware vendor's hot-swap and recovery procedures.
 
 # **Section 4 – Build, Test Execution and Defect Management**
 
@@ -1105,11 +1514,11 @@ If Google Chrome does not open, the result is FAIL.
 
 **Updating test results:**
 
-Initially, a test case is in the Unexecuted state.
+Initially, a test case is in the Not Executed state.
 
 During execution, we update it to In Progress.
 
-After execution, we update the result to PASS or FAIL.
+After execution, we update the result to PASS or FAIL. If an unmet precondition or dependency prevents execution, we mark it as BLOCKED. If the test case does not apply to the current product or configuration, we mark it as N/A.
 
 **Test Reporting:**
 
@@ -1135,34 +1544,35 @@ Whenever a test case fails because the actual result is different from the expec
 The Bug Life Cycle describes the different stages through which a defect passes until it is resolved.
 
 **Bug Life Cycle:**
-
 ```
-        Test Case Execution
-                 |
-             PASS/FAIL
-                 |
-            Raise Bug
-                 |
-               NEW
-                 |
-              OPEN
-                 |
-           Assigned to
-             Developer
-                 |
-           IN PROGRESS
-                 |
-              FIXED
-                 |
-          Tester Verification
-                 |
-          +------+------+
-          |             |
-       Verified       Not Fixed
-          |             |
-         CLOSE        REOPEN
-                        |
-                     Developer
+
+Test Case Execution\
+|\
+PASS/FAIL\
+|\
+Raise Bug\
+|\
+NEW\
+|\
+OPEN\
+|\
+Assigned to\
+Developer\
+|\
+IN PROGRESS\
+|\
+FIXED\
+|\
+Tester Verification\
+|\
++------+------+\
+\|             |\
+Verified       Not Fixed\
+\|             |\
+CLOSE        REOPEN\
+|\
+Developer
+
 ```
 
 **Explanation:**
@@ -1765,3 +2175,4 @@ The following concepts are particularly important across the question bank:
 | Sprint             | Fixed period for completing planned work               |
 
 **Testing preparation is complete.**
+```
